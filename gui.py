@@ -14,6 +14,5 @@ class Gui(QMainWindow):
 
         self.setGeometry(300, 300, 250, 150)
         self.setWindowTitle('Jeux')
+        self.resize(1280, 720)
         self.show()
-
-
