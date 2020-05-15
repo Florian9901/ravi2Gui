@@ -4,6 +4,7 @@ from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, qApp, QWidget, QVBoxLayout, QTabWidget, QPushButton, \
     QInputDialog, QLineEdit, QHBoxLayout, QHeaderView
 from PyQt5.QtWidgets import QTableWidget,QTableWidgetItem
+from PyQt5.uic.properties import QtGui
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -112,7 +113,10 @@ class MyTableWidget(QWidget):
         # Set the layout to the QWidget
         self.tab2.setLayout(self.tab2.layout)
 
+        saveButton = QPushButton("Sauvegarder")
+        saveButton.clicked.connect(self.save)
 
+        self.tab2.layout.addWidget(saveButton)
 
 
         # Add tabs to widget
@@ -123,3 +127,6 @@ class MyTableWidget(QWidget):
         print("click")
         nom,type = QInputDialog.getText(self,"input dialog","Votre Nom ?",QLineEdit.Normal,"")
         print(nom)
+
+    def save(self):
+        print("save")
