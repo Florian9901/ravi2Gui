@@ -2,7 +2,8 @@ import sys
 
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, qApp, QWidget, QVBoxLayout, QTabWidget, QPushButton, \
-    QInputDialog, QLineEdit
+    QInputDialog, QLineEdit, QHBoxLayout, QHeaderView
+from PyQt5.QtWidgets import QTableWidget,QTableWidgetItem
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -90,6 +91,27 @@ class MyTableWidget(QWidget):
         self.tab1.layout.addWidget(openButton)
         self.tab1.setLayout(self.tab1.layout)
         self.tab1.setStyleSheet(_fromUtf8("background-image: url(./logositeweb_72ppp.png); background-attachment: fixed"))
+
+        # Left
+        self.table = QTableWidget()
+        self.table.setColumnCount(2)
+        self.table.setRowCount(6)
+        self.table.setItem(0, 0, QTableWidgetItem("Nom"))
+        self.table.setItem(1, 0, QTableWidgetItem("Prénom"))
+        self.table.setItem(2, 0, QTableWidgetItem("Date de naissance"))
+        self.table.setItem(3, 0, QTableWidgetItem("Sexe"))
+        self.table.setItem(4, 0, QTableWidgetItem("Taille"))
+        self.table.setItem(5, 0, QTableWidgetItem("Poids"))
+
+        # QWidget Layout
+        self.tab2.layout = QHBoxLayout()
+
+        #self.table_view.setSizePolicy(size)
+        self.tab2.layout.addWidget(self.table)
+
+        # Set the layout to the QWidget
+        self.tab2.setLayout(self.tab2.layout)
+
 
 
 
