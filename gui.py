@@ -1,13 +1,21 @@
 import sys
+
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, qApp, QWidget, QVBoxLayout, QTabWidget, QPushButton, \
     QInputDialog, QLineEdit
 
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
 
 class Gui(QMainWindow):
 
-    def __init__(self):
+    def __init__(self,parent=None):
         super().__init__()
         self.initUI()
+
 
     def initUI(self):
         self.statusBar().showMessage('Ready')
@@ -81,6 +89,7 @@ class MyTableWidget(QWidget):
 
         self.tab1.layout.addWidget(openButton)
         self.tab1.setLayout(self.tab1.layout)
+        self.tab1.setStyleSheet(_fromUtf8("background-image: url(./logositeweb_72ppp.png); background-attachment: fixed"))
 
 
 
